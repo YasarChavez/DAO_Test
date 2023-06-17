@@ -1,24 +1,19 @@
 package Persistencia;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public abstract class DAO {
+    private static final String USER = "root";
+    private static final String PASSWORD = "root";
+    private static final String DATABASE = "usuario";
     protected Connection conexion = null;
     protected ResultSet resultado = null;
     protected Statement sentencia = null;
 
-    private static final String USER = "root";
-    private static final String PASSWORD = "root";
-    private static final String DATABASE = "usuario";
-
-
     protected void conectarBaseDeDatos() throws SQLException {
         try {
             String url = "jdbc:mysql://localhost:3306/" + DATABASE;
-            conexion = java.sql.DriverManager.getConnection(url, USER, PASSWORD);
+            conexion = DriverManager.getConnection(url, USER, PASSWORD);
         } catch (SQLException e) {
             throw e;
         }
@@ -57,11 +52,10 @@ public abstract class DAO {
             conectarBaseDeDatos();
             sentencia = conexion.createStatement();
             resultado = sentencia.executeQuery(sql);
-        } catch (SQLException  e) {
+        } catch (SQLException e) {
             throw e;
         }
     }
-
 
 
 }

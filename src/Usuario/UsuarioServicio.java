@@ -51,7 +51,5 @@ public class UsuarioServicio {
         } catch (Exception e) {
             throw e;
         }
-
-
     }
 }

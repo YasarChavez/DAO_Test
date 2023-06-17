@@ -33,7 +33,7 @@ public class Main {
                     System.out.println("Opcion no valida");
                     break;
             }
-        }while (menu != 4);
+        } while (menu != 4);
 
     }
 
